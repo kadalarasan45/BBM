@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACK BUNNY MEDIA</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/bunny.png">
+
+    <link rel="stylesheet preload" href="style.css" as="style">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <!-- Navbar -->
+  <nav class="navbar-custom navbar-expand-lg">
+    <!-- Navbrand with image -->
+    <a class="navbar-brand" href="#">
+      <img src="images/BBM-LOGO-MAIN.png" width="200" height="75" class="d-inline-block align-top" alt="Logo">
+    </a>
+
+    <!-- Toggler for mobile view -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <!-- Contact text and phone number aligned to the right -->
+        <span class="navbar-text">
+          GET IN TOUCH : <a href="tel:+1234567890" class="nav-link d-inline">+91 9677776212</a>
+        </span>
+      </div>
+  </nav>
+
+  <!-- Coming Soon Section -->
+  <div class="coming-soon-container">
+    <h1>COMING SOON</h1>
+    <form id="email-form" class="email-input">
+      <input type="email" id="email-input" placeholder="yourname@domain.com" required>
+      <button type="submit">SUBSCRIBE</button>
+    </form>
+    <div id="response-message" style="margin-top: 20px;"></div>
+
+
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/jayakrishna-m-30b03b259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="fab fa-linkedin"></a>
+      <a href="https://www.instagram.com/blackbunnydotmedia?igsh=MXA4emNmMGR3b3BwZA==" class="fab fa-instagram"></a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('email-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      var email = document.getElementById('email-input').value;
+      
+      // Send the email to backend via AJAX
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'send_email.php', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          document.getElementById('response-message').innerText = 'Subscription successful!';
+        }
+      };
+      xhr.send('email=' + encodeURIComponent(email));
+    });
+  </script>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+</body>
+</html>
