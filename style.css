@@ -1,126 +1,87 @@
-body {
-    height: 100vh;
-    background: linear-gradient(135deg, #0b0c0c,black);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Arial', sans-serif;
-  }
+/* Base styles for body and html */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #000 !important;
+  color: white;
+}
 
-  .coming-soon-container h1 {
-    font-size: 10rem;
-    letter-spacing: 0.2rem;
-    margin-bottom: 20px;
-    color: #F37820;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-shadow: 0 1px 0 black, 0 2px 0 black,
-                0 3px 0 black, 0 4px 0 black,
-                0 5px 0 black, 0 6px 0 black,
-                0 7px 0 black, 0 8px 0 black,
-                0 9px 0 black, 0 10px 0 black,
-                0 11px 0 black, 0 12px 0 black,
-                0 20px 30px rgba(0, 0, 0, 0.5);
-    
-  }
+.container {
+  max-width: 1200px;
+}
 
-  .coming-soon-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    z-index: 2; /* To keep the content above the background */
-  }
+/* Custom styling for Navbar */
+.navbar {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.navbar-brand img {
+  height: 80px;
+  width: 180px;
+}
+
+.phone {
+  color: #F37820;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+}
+
+.left-side img {
+  width: 820px;
+  height: 670px;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right-side h1 {
+  font-size: 6rem;
+  margin-bottom: 20px;
+  color: #F37820;
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
   
-  .coming-soon-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/BBM-LOGO-MAIN.png'); /* Replace with your image path */
-    background-size: cover;
-    background-position: center;
-    filter: blur(4px); /* Adjust the blur value as needed */
-    z-index: -1; /* To place the image behind the content */
-  }
-  
-  .email-input input {
-    padding: 10px;
-    margin-top: 20px;
-    border-radius: 5px;
-    border: none;
-    width: 250px;
-  }
-  
-  .email-input button {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    cursor: pointer;
-    margin-left: 10px;
-  }
-  
-  .social-icons {
-    margin-top: 20px;
-  }
-  
-  .social-icons a {
-    color: white;
-    font-size: 30px;
-    margin: 0 10px;
+}
+
+.subscribe-input {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.subscribe-input input[type="email"] {
+  border: none;
+  padding: 10px;
+  border-radius: 3px;
+  width: 70%;
+}
+
+.subscribe-input button {
+  border: none;
+  padding: 10px;
+  background-color: #F37820;
+  color: white;
+  cursor: pointer;
+}
+::-webkit-input-placeholder { 
+  color: black;
+  background: #F37820;
+  font-weight: 400;
+}
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .right-side h1 {
+    font-size: 2rem;
   }
 
-  .email-input button:hover {
-    background-color: #00ff87;
+  .subscribe-input input {
+    width: 90%;
   }
-
-  .social-icons a:hover {
-    color: #00ff87;
-  }
-
-  .navbar-custom {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  .navbar-custom .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-  }
-
-  .navbar-text{
-    font-size: 1.5rem;
-    font-weight: bolder;
-    padding-right: 10px;
-    color: #F37820;
-  }
-
-  .navbar-custom .contact-link a {
-    font-size: 1rem;
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .navbar-custom .contact-link a:hover {
-    color: #00ff87;
-  }
-  
-  .navbar-toggler-icon{
-    background-color: #F37820;
-  }
+}
